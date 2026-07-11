@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HASS Lesson Generator</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1b1f24; --muted: #5b6572; --accent: #1e6f5c;
+    --card-bg: #f4f6f5; --border: #e0e4e2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14171a; --fg: #e8ecef; --muted: #9aa5ad; --accent: #4fbf9f;
+      --card-bg: #1d2226; --border: #2b3136; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--fg); font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    max-width: 640px; margin: 0 auto; padding: 2rem 1.25rem 4rem; line-height: 1.55;
+  }
+  header { border-bottom: 3px solid var(--accent); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.5rem; }
+  .meta { color: var(--muted); font-size: .9rem; }
+  form { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
+  label { display: block; font-weight: 600; margin: 1rem 0 .35rem; }
+  label:first-of-type { margin-top: 0; }
+  input[type=text], input[type=number], select {
+    width: 100%; padding: .6rem .7rem; border-radius: 6px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--fg); font-size: 1rem;
+  }
+  .row { display: flex; gap: 1rem; }
+  .row > div { flex: 1; }
+  button {
+    margin-top: 1.5rem; width: 100%; padding: .8rem; border: none; border-radius: 8px;
+    background: var(--accent); color: white; font-size: 1rem; font-weight: 600; cursor: pointer;
+  }
+  button:disabled { opacity: .6; cursor: wait; }
+  .error {
+    background: #fdecea; color: #9a1c1c; border: 1px solid #f3b4ae; border-radius: 8px;
+    padding: .8rem 1rem; margin-bottom: 1rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    .error { background: #3a1f1f; color: #ffb4ab; border-color: #6b2d2d; }
+  }
+  #status { display: none; margin-top: 1rem; color: var(--muted); font-size: .9rem; text-align: center; }
+  footer { margin-top: 2rem; color: var(--muted); font-size: .8rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>HASS Lesson Generator</h1>
+  <div class="meta">Year 9 Geography &middot; South Australia &middot; Australian Curriculum v9</div>
+</header>
+
+{% if error %}
+<div class="error">{{ error }}</div>
+{% endif %}
+
+<form id="lesson-form" method="post" action="/generate">
+  <label for="topic">Lesson topic</label>
+  <input type="text" id="topic" name="topic" placeholder="e.g. Desertification and food security in the Sahel" required>
+
+  <div class="row">
+    <div>
+      <label for="unit">Unit</label>
+      <select id="unit" name="unit">
+        {% for key, unit in units.items() %}
+        <option value="{{ key }}">{{ unit.title }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div>
+      <label for="duration">Duration (minutes)</label>
+      <input type="number" id="duration" name="duration" value="70" min="20" max="120">
+    </div>
+  </div>
+
+  <button type="submit" id="submit-btn">Generate lesson</button>
+  <div id="status">Researching and drafting your lesson&hellip; this usually takes a minute or two.</div>
+</form>
+
+<footer>
+  Every lesson is drafted by an AI agent that searches the web for sources.
+  Review the sources and content before using a lesson with a class.
+</footer>
+
+<script>
+  document.getElementById('lesson-form').addEventListener('submit', function () {
+    document.getElementById('submit-btn').disabled = true;
+    document.getElementById('submit-btn').textContent = 'Generating…';
+    document.getElementById('status').style.display = 'block';
+  });
+</script>
+</body>
+</html>
