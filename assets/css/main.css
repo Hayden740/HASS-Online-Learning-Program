@@ -1,0 +1,442 @@
+/* ==========================================================================
+   HASS Online Learning Program — shared design system ("Seaford 2025")
+   Plain CSS, no build step. Loaded by every page.
+   ========================================================================== */
+
+:root {
+  --teal: #013148;
+  --lime: #BDD675;
+  --coral: #F46E63;
+  --pink: #F38C9F;
+  --sky: #C0E7F8;
+  --sage: #7AC698;
+
+  --teal-wash: #e7edf0;
+  --lime-wash: #f1f6e3;
+  --coral-wash: #fdeceb;
+  --pink-wash: #fdedf1;
+  --sky-wash: #eef8fd;
+  --sage-wash: #eaf6ef;
+
+  --ink: var(--teal);
+  --paper: #ffffff;
+  --muted: #4d6b78;
+
+  --font-heading: "DM Serif Display", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  --radius: 10px;
+  --max-width: 900px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+a {
+  color: var(--teal);
+}
+
+a:hover {
+  color: var(--coral);
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+/* --------------------------------------------------------------------------
+   Site header / breadcrumb
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  background: var(--teal);
+  color: white;
+  padding: 1rem 1.25rem;
+}
+
+.site-header .wrap {
+  padding: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.site-header a {
+  color: white;
+  text-decoration: none;
+}
+
+.site-header a:hover {
+  color: var(--sky);
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: var(--sky);
+}
+
+.breadcrumb a {
+  color: var(--sky);
+  text-decoration: underline;
+}
+
+.breadcrumb a:hover {
+  color: var(--lime);
+}
+
+/* --------------------------------------------------------------------------
+   Headings — left accent bar with pale wash, never a solid fill
+   -------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--teal);
+}
+
+.heading-bar {
+  border-left: 6px solid var(--lime);
+  background: var(--lime-wash);
+  padding: 0.75rem 1rem;
+  margin: 2rem 0 1rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.heading-bar h1,
+.heading-bar h2,
+.heading-bar h3 {
+  margin: 0;
+}
+
+.heading-bar.-coral {
+  border-left-color: var(--coral);
+  background: var(--coral-wash);
+}
+
+.heading-bar.-pink {
+  border-left-color: var(--pink);
+  background: var(--pink-wash);
+}
+
+.heading-bar.-sky {
+  border-left-color: var(--sky);
+  background: var(--sky-wash);
+}
+
+.heading-bar.-sage {
+  border-left-color: var(--sage);
+  background: var(--sage-wash);
+}
+
+/* --------------------------------------------------------------------------
+   Card grid — used for year / unit / lesson listing pages
+   -------------------------------------------------------------------------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.card {
+  display: block;
+  border-left: 6px solid var(--sage);
+  background: var(--sage-wash);
+  border-radius: 0 8px 8px 0;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: var(--teal);
+  transition: transform 0.15s ease;
+}
+
+.card:hover {
+  transform: translateX(2px);
+  color: var(--teal);
+}
+
+.card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.card.-coming-soon {
+  border-left-color: #ccc;
+  background: #f5f5f5;
+  color: var(--muted);
+  cursor: default;
+}
+
+.card:nth-child(4n+1) { border-left-color: var(--sage); background: var(--sage-wash); }
+.card:nth-child(4n+2) { border-left-color: var(--sky); background: var(--sky-wash); }
+.card:nth-child(4n+3) { border-left-color: var(--pink); background: var(--pink-wash); }
+.card:nth-child(4n+4) { border-left-color: var(--lime); background: var(--lime-wash); }
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid var(--teal);
+  background: white;
+  color: var(--teal);
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: var(--teal);
+  color: white;
+}
+
+.btn.-primary {
+  background: var(--teal);
+  color: white;
+}
+
+.btn.-primary:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: white;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Tabs
+   -------------------------------------------------------------------------- */
+
+.tabs {
+  margin-top: 1.5rem;
+}
+
+.tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  border-bottom: 3px solid var(--teal-wash);
+  margin-bottom: 1.25rem;
+}
+
+.tab-btn {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+  padding: 0.6rem 0.9rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tab-btn:hover {
+  color: var(--teal);
+}
+
+.tab-btn[aria-selected="true"] {
+  color: var(--teal);
+  border-bottom-color: var(--coral);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.-active {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Predict / Investigate / Explain / Reveal components
+   -------------------------------------------------------------------------- */
+
+.step {
+  margin-bottom: 2rem;
+}
+
+textarea.response-box {
+  width: 100%;
+  min-height: 6rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.75rem;
+  border: 2px solid var(--teal-wash);
+  border-radius: var(--radius);
+  resize: vertical;
+}
+
+textarea.response-box:focus {
+  outline: none;
+  border-color: var(--sage);
+}
+
+.save-status {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+  min-height: 1.2em;
+}
+
+.reveal {
+  border-left: 6px solid var(--pink);
+  background: var(--pink-wash);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.reveal[hidden] {
+  display: none;
+}
+
+.reveal-locked-msg {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   Multiple choice
+   -------------------------------------------------------------------------- */
+
+.mcq {
+  margin: 1rem 0;
+}
+
+.mcq-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: white;
+  border: 2px solid var(--teal-wash);
+  border-radius: var(--radius);
+  padding: 0.65rem 1rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.mcq-option:hover {
+  border-color: var(--sky);
+}
+
+.mcq-option.-correct {
+  border-color: var(--sage);
+  background: var(--lime-wash);
+}
+
+.mcq-option.-incorrect {
+  border-color: var(--coral);
+  background: var(--coral-wash);
+}
+
+.mcq-option:disabled {
+  cursor: default;
+}
+
+.mcq-feedback {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.mcq-feedback.-correct {
+  color: #3d6b2f;
+}
+
+.mcq-feedback.-incorrect {
+  color: #a83a30;
+}
+
+/* --------------------------------------------------------------------------
+   Source links (YouTube etc. — plain links only, never embedded)
+   -------------------------------------------------------------------------- */
+
+.source-link {
+  display: inline-block;
+  border: 2px solid var(--sky);
+  background: var(--sky-wash);
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  margin: 0.4rem 0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.source-link:hover {
+  border-color: var(--teal);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--teal-wash);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.15rem;
+  }
+
+  .tab-btn {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.88rem;
+  }
+}

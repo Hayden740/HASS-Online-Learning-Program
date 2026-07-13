@@ -1,7 +1,2 @@
-.env
-__pycache__/
-*.pyc
-.venv/
-venv/
-lessons/*.html
-lessons/*.json
+.DS_Store
+Thumbs.db

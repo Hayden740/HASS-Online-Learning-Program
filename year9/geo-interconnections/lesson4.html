@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 4 — Geographies of Interconnections — Year 9 HASS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body data-lesson-slug="year9-geo-interconnections-lesson4">
+
+<header class="site-header">
+  <div class="wrap">
+    <span class="site-title"><a href="../../index.html">HASS Online Learning</a></span>
+    <span class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../index.html">Year 9</a> / <a href="index.html">Geographies of Interconnections</a> / Lesson 4</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="heading-bar">
+    <h1>Lesson 4 &mdash; [title to come]</h1>
+  </div>
+
+  <p><em>Lesson content not yet written &mdash; this is the structural template for every lesson in this unit. Replace the placeholder copy below with real content, keeping the tab/data-attribute structure so the shared behaviour in <code>lesson.js</code> keeps working.</em></p>
+
+  <div class="tabs" data-tabs>
+    <div class="tab-list" role="tablist">
+      <button class="tab-btn" data-tab="predict" role="tab" aria-selected="false">Predict</button>
+      <button class="tab-btn" data-tab="investigate" role="tab" aria-selected="false">Investigate</button>
+      <button class="tab-btn" data-tab="explain" role="tab" aria-selected="false">Explain</button>
+      <button class="tab-btn" data-tab="reveal-tab" role="tab" aria-selected="false">Reveal</button>
+    </div>
+
+    <!-- PREDICT -------------------------------------------------------- -->
+    <section class="tab-panel" id="predict">
+      <div class="step">
+        <h2>Predict</h2>
+        <p>[Prediction prompt goes here &mdash; a quick question students answer from what they already know, before seeing the lesson's source material.]</p>
+
+        <label for="predict-1" data-label-for="predict-1">Your prediction</label>
+        <textarea
+          id="predict-1"
+          class="response-box"
+          data-autosave="predict-1"
+          data-label="Predict: [prompt summary]"
+          rows="3"></textarea>
+        <div class="save-status" data-save-status-for="predict-1"></div>
+      </div>
+    </section>
+
+    <!-- INVESTIGATE ----------------------------------------------------- -->
+    <section class="tab-panel" id="investigate">
+      <div class="step">
+        <h2>Investigate</h2>
+        <p>[Source material / reading / activity for this lesson goes here.]</p>
+
+        <!-- YouTube must be a plain link, never an <iframe> (school firewall blocks embeds). -->
+        <p><a class="source-link" href="https://www.youtube.com/watch?v=REPLACE_ME" target="_blank" rel="noopener">Watch: [video title] (YouTube, opens in a new tab)</a></p>
+
+        <div class="mcq" data-mcq data-correct="a" data-autosave-key="mcq-1" data-label="[MCQ question summary]">
+          <p><strong>[Multiple choice question goes here.]</strong></p>
+          <button class="mcq-option" data-choice="a">[Option A]</button>
+          <button class="mcq-option" data-choice="b">[Option B]</button>
+          <button class="mcq-option" data-choice="c">[Option C]</button>
+          <div class="mcq-feedback" data-feedback-correct="[Feedback for correct answer.]" data-feedback-incorrect="[Feedback pointing back to the source material.]"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLAIN (CER) ---------------------------------------------------- -->
+    <section class="tab-panel" id="explain">
+      <div class="step">
+        <h2>Explain &mdash; Claim, Evidence, Reasoning</h2>
+        <p>[CER prompt goes here.]</p>
+
+        <label for="cer-1">Claim</label>
+        <textarea id="cer-claim-1" class="response-box" data-autosave="cer-claim-1" data-label="CER Claim" data-no-paste rows="2" onpaste="return false;"></textarea>
+
+        <label for="cer-2">Evidence</label>
+        <textarea id="cer-evidence-1" class="response-box" data-autosave="cer-evidence-1" data-label="CER Evidence" data-no-paste rows="3" onpaste="return false;"></textarea>
+
+        <label for="cer-3">Reasoning</label>
+        <textarea id="cer-1" class="response-box" data-autosave="cer-reasoning-1" data-label="CER Reasoning" data-no-paste rows="3" onpaste="return false;"></textarea>
+        <div class="save-status" data-save-status-for="cer-reasoning-1"></div>
+      </div>
+    </section>
+
+    <!-- REVEAL ------------------------------------------------------------ -->
+    <section class="tab-panel" id="reveal-tab">
+      <div class="step">
+        <h2>Reveal</h2>
+        <p class="reveal-locked-msg">Complete the Explain step first &mdash; the model answer unlocks once you've written your reasoning.</p>
+
+        <button class="btn -primary" data-reveal-trigger="reveal-1" data-unlock-from="cer-1" disabled>Show model answer</button>
+
+        <div class="reveal" id="reveal-1" hidden>
+          <h3>Model answer</h3>
+          <p>[Model CER response / teacher commentary goes here.]</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <p>
+    <button class="btn" data-download-answers>Download my answers</button>
+  </p>
+
+  <p><a href="index.html">&larr; Back to Geographies of Interconnections</a></p>
+
+  <footer class="site-footer">
+    HASS Online Learning Program &mdash; Seaford Secondary College
+  </footer>
+</main>
+
+<script src="../../assets/js/lesson.js"></script>
+</body>
+</html>
